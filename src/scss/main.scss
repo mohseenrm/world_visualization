@@ -7,3 +7,10 @@ h1{
     color: #ffff00;
 }
 /*add styles here*/
+
+.wrapper{
+    @include flexbox;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
