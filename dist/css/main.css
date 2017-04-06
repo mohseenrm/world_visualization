@@ -64,3 +64,24 @@ h1 {
   overflow: hidden; }
 
 /*# sourceMappingURL=main.css.map */
+
+.ui-slider-horizontal.ui-slider-pips {
+    margin-left: 30px;
+    margin-top: 40px;
+    width:60%;
+
+
+}
+#year_selected {
+    position:relative;
+    display:inline-block;
+    padding-bottom:5rem;
+    text-align:center;
+    font-family: 'Exo', sans-serif;
+    font-weight:500;
+    font-size:1rem;
+    color:#529e0e;
+    background:transparent;
+    border:none;
+}
+
