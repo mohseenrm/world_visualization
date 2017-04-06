@@ -3,10 +3,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700&subset=cyrillic');
 
-
-html,body{
-    height:100%;
-}
 body{
     text-align:center;
     background: #d5d5d5; /* Old browsers */
