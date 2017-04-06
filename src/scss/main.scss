@@ -1,21 +1,41 @@
 @import 'reset';
 @import 'flex';
 @import 'fonts';
-
-h1{
+h1 {
     font-size: 6rem;
     color: #ffff00;
 }
+
+
 /*add styles here*/
 
-body > .wrapper{
+body>.wrapper {
     @include flexbox;
     width: 100%;
     height: 100%;
     overflow: hidden;
 }
 
-.slider-wrapper{
+.slider-wrapper {
     @include flexbox;
     height: 15%;
+}
+
+.ui-slider-horizontal.ui-slider-pips {
+    margin-left: 30px;
+    margin-top: 40px;
+    width: 60%;
+}
+
+#year_selected {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5rem;
+    text-align: center;
+    font-family: 'Exo', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #529e0e;
+    background: transparent;
+    border: none;
 }
