@@ -8,7 +8,7 @@
 
 			request.onload = () => {
 				if( request.status == 200 ){
-					request.ovverrideMimeType( "image/svg+xml" );
+					// request.overrideMimeType( "image/svg+xml" );
 					resolve( request );
 				}
 				else
@@ -27,7 +27,7 @@
 	// xhr.overrideMimeType("image/svg+xml");
 	// xhr.send("");
 
-	get('images/world.svg').then( ( request ) => {
+	get('https://rawgit.com/mohseenrm/leet_code/master/world.svg').then( ( request ) => {
 		document.getElementById( "svgContainer" )
 				.appendChild( request.responseXML.documentElement );
 	}, ( error ) => {

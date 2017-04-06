@@ -81,7 +81,7 @@
 
 			request.onload = function () {
 				if (request.status == 200) {
-					request.ovverrideMimeType("image/svg+xml");
+					// request.overrideMimeType( "image/svg+xml" );
 					resolve(request);
 				} else reject(Error(request.statusText));
 			};
@@ -98,7 +98,7 @@
 	// xhr.overrideMimeType("image/svg+xml");
 	// xhr.send("");
 
-	get('images/world.svg').then(function (request) {
+	get('https://rawgit.com/mohseenrm/leet_code/master/world.svg').then(function (request) {
 		document.getElementById("svgContainer").appendChild(request.responseXML.documentElement);
 	}, function (error) {
 		console.log("Failed to get resource: " + error);
