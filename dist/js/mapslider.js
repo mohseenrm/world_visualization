@@ -5,13 +5,7 @@
 
 var obj = new Object();
 obj.year = 1970;
-obj.fsi  = true;
-obj.gdp  = false;
-obj.inf  = false;
-obj.gini  = false;
-obj.popu  = false;
-obj.emp  = false;
-obj.res  = false;
+obj.filter="FSI"
 
 /*$('#range').on("change", function() {
     $('.output').val(this.value );
@@ -47,13 +41,7 @@ $('input[type=checkbox]').change(function(){
     clicked = $(this).data('index');
      //alert(clicked)
      if(clicked == 0 ){
-         obj.fsi  = true;
-         obj.gdp  = false;
-         obj.inf  = false;
-         obj.gini  = false;
-         obj.popu  = false;
-         obj.emp  = false;
-         obj.res  = false;
+         obj.filter="FSI";
          document.getElementById("GDP").checked = false;
          document.getElementById("Inf").checked = false;
          document.getElementById("Gini").checked = false;
@@ -63,13 +51,7 @@ $('input[type=checkbox]').change(function(){
          PostData()
      }
     if(clicked == 1 ){
-        obj.fsi  = false;
-        obj.gdp  = true;
-        obj.inf  = false;
-        obj.gini  = false;
-        obj.popu  = false;
-        obj.emp  = false;
-        obj.res  = false;
+        obj.filter="GDP";
         document.getElementById("FSI").checked = false;
         document.getElementById("Inf").checked = false;
         document.getElementById("Gini").checked = false;
@@ -79,13 +61,7 @@ $('input[type=checkbox]').change(function(){
         PostData()
     }
     if(clicked == 2 ){
-        obj.fsi  = false;
-        obj.gdp  = false;
-        obj.inf  = true;
-        obj.gini  = false;
-        obj.popu  = false;
-        obj.emp  = false;
-        obj.res  = false;
+        obj.filter="INF";
         document.getElementById("FSI").checked = false;
         document.getElementById("GDP").checked = false;
         document.getElementById("Gini").checked = false;
@@ -95,13 +71,7 @@ $('input[type=checkbox]').change(function(){
         PostData()
     }
     if(clicked == 3 ){
-        obj.fsi  = false;
-        obj.gdp  = false;
-        obj.inf  = false;
-        obj.gini  = true;
-        obj.popu  = false;
-        obj.emp  = false;
-        obj.res  = false;
+        obj.filter="GIN";
         document.getElementById("FSI").checked = false;
         document.getElementById("GDP").checked = false;
         document.getElementById("Inf").checked = false;
@@ -111,13 +81,7 @@ $('input[type=checkbox]').change(function(){
         PostData()
     }
     if(clicked == 4 ){
-        obj.fsi  = false;
-        obj.gdp  = false;
-        obj.inf  = false;
-        obj.gini  = false;
-        obj.popu  = true;
-        obj.emp  = false;
-        obj.res  = false;
+        obj.filter="POP";
         document.getElementById("FSI").checked = false;
         document.getElementById("GDP").checked = false;
         document.getElementById("Gini").checked = false;
@@ -127,13 +91,7 @@ $('input[type=checkbox]').change(function(){
         PostData()
     }
     if(clicked == 5 ){
-        obj.fsi  = false;
-        obj.gdp  = false;
-        obj.inf  = false;
-        obj.gini  = false;
-        obj.popu  = false;
-        obj.emp  = true;
-        obj.res  = false;
+        obj.filter="EMP";
         document.getElementById("FSI").checked = false;
         document.getElementById("GDP").checked = false;
         document.getElementById("Gini").checked = false;
@@ -143,13 +101,7 @@ $('input[type=checkbox]').change(function(){
         PostData()
     }
     if(clicked == 6 ){
-        obj.fsi  = false;
-        obj.gdp  = false;
-        obj.inf  = false;
-        obj.gini  = false;
-        obj.popu  = false;
-        obj.emp  = false;
-        obj.res  = true;
+        obj.filter="RES";
         document.getElementById("FSI").checked = false;
         document.getElementById("GDP").checked = false;
         document.getElementById("Gini").checked = false;
