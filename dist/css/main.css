@@ -76,6 +76,9 @@ h1 {
 
 .ui-slider-horizontal.ui-slider-pips {
     width:60%;
+    position: relative;
+    background: center;
+    background-color: #9FE472;
 }
 #year_selected {
     position:relative;

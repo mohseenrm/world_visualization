@@ -313,7 +313,7 @@ span{
 }
 */
 
-label[for="cheap"]{
+label[for="FSI"]{
     width:100px;
     height:50px;
     box-sizing:border-box;
@@ -325,7 +325,7 @@ label[for="cheap"]{
     transition:.3s ease;
 }
 
-label[for="fast"]{
+label[for="GDP"]{
     width:100px;
     height:50px;
     box-sizing:border-box;
@@ -338,7 +338,7 @@ label[for="fast"]{
 }
 
 
-label[for="quality"]{
+label[for="Inf"]{
     width:100px;
     height:50px;
     box-sizing:border-box;
@@ -349,7 +349,49 @@ label[for="quality"]{
     cursor:pointer;
     transition:.3s ease;
 }
-
+label[for="Gini"]{
+    width:100px;
+    height:50px;
+    box-sizing:border-box;
+    border:3px solid;
+    float:left;
+    border-radius:100px;
+    position:relative;
+    cursor:pointer;
+    transition:.3s ease;
+}label[for="cheap"]{
+     width:100px;
+     height:50px;
+     box-sizing:border-box;
+     border:3px solid;
+     float:left;
+     border-radius:100px;
+     position:relative;
+     cursor:pointer;
+     transition:.3s ease;
+ }
+label[for="Emp"]{
+      width:100px;
+      height:50px;
+      box-sizing:border-box;
+      border:3px solid;
+      float:left;
+      border-radius:100px;
+      position:relative;
+      cursor:pointer;
+      transition:.3s ease;
+  }
+label[for="Reserve"]{
+       width:100px;
+       height:50px;
+       box-sizing:border-box;
+       border:3px solid;
+       float:left;
+       border-radius:100px;
+       position:relative;
+       cursor:pointer;
+       transition:.3s ease;
+   }
 input[type=checkbox]:checked + label{
     background:#55e868;
 }
@@ -372,7 +414,7 @@ label[for='cheap']:before{
     border-radius:100px;
 }
 
-label[for='fast']:before{
+label[for='FSI']:before{
     transition:.3s ease;
     content:'';
     width:40px;
@@ -387,7 +429,63 @@ label[for='fast']:before{
     border-radius:100px;
 }
 
-label[for='quality']:before{
+label[for='GDP']:before{
+    transition:.3s ease;
+    content:'';
+    width:40px;
+    height:40px;
+    position:absolute;
+    background:white;
+    left:2px;
+    top:2px;
+    box-sizing:border-box;
+    border:3px solid;
+    color:black;
+    border-radius:100px;
+}
+label[for='Inf']:before{
+    transition:.3s ease;
+    content:'';
+    width:40px;
+    height:40px;
+    position:absolute;
+    background:white;
+    left:2px;
+    top:2px;
+    box-sizing:border-box;
+    border:3px solid;
+    color:black;
+    border-radius:100px;
+}
+label[for='Gini']:before{
+    transition:.3s ease;
+    content:'';
+    width:40px;
+    height:40px;
+    position:absolute;
+    background:white;
+    left:2px;
+    top:2px;
+    box-sizing:border-box;
+    border:3px solid;
+    color:black;
+    border-radius:100px;
+}
+label[for='Emp']:before{
+    transition:.3s ease;
+    content:'';
+    width:40px;
+    height:40px;
+    position:absolute;
+    background:white;
+    left:2px;
+    top:2px;
+    box-sizing:border-box;
+    border:3px solid;
+    color:black;
+    border-radius:100px;
+}
+label[for='Reserve']:before{
     transition:.3s ease;
     content:'';
     width:40px;
