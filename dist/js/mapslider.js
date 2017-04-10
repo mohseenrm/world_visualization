@@ -124,7 +124,7 @@ function PostData(){
 
     $.ajax({
         type: 'POST',
-        url: "https://localhost:9001/main",
+        url: "http://localhost:9001/main",
         contentType: 'application/json',
         dataType: 'json',
         data: JSON.stringify(obj)
