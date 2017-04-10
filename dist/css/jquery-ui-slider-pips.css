@@ -30,9 +30,10 @@
   height: 1em;
   line-height: 1em;
   position: absolute;
-  font-size: 0.8em;
-  color: #999;
+  font-size: 0.6em;
+  color: #0000;
   overflow: visible;
+  font-weight: bold;
   text-align: center;
   top: 20px;
   left: 20px;

@@ -61,22 +61,28 @@ h1 {
   display: flex;
   width: 100%;
   height: 100%;
-  overflow: hidden; }
+
+}
+.tag{
+    float: left;
+    position: absolute;
+    left: 250px;
+    top: 40px;
+    background-color: green;
+    z-index: 1000;
+}
 
 /*# sourceMappingURL=main.css.map */
 
 .ui-slider-horizontal.ui-slider-pips {
-    margin-left: 30px;
-    margin-top: 40px;
     width:60%;
-
-
 }
 #year_selected {
     position:relative;
     display:inline-block;
     padding-bottom:5rem;
     text-align:center;
+    margin-left:20%;
     font-family: 'Exo', sans-serif;
     font-weight:500;
     font-size:1rem;
@@ -84,4 +90,8 @@ h1 {
     background:transparent;
     border:none;
 }
+.world{
+    max-width: 99%;
+    max-height: 99%;
 
+}

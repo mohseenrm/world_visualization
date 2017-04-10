@@ -9,12 +9,35 @@ obj.filt1  = true;
 obj.filt2  = false;
 obj.filt3  = false;
 
-$('#range').on("change", function() {
+/*$('#range').on("change", function() {
     $('.output').val(this.value );
     obj.year = this.value;
     PostData()
     // alert(obj.year)
-}).trigger("change");
+}).trigger("change");*/
+
+
+
+$(".slider")
+
+    .slider({
+        min: 1960,
+        max: 2016,
+        step: 1,
+        slide: function( event, ui ) {
+            //$( "#year_selected" ).val( ui.value);
+            obj.year=ui.value;
+            //alert(obj.year);
+
+        }
+    })
+
+    .slider("pips", {
+        rest: "label",
+        step: 4
+    })
+
+    .slider("float");
 
 $('input[type=checkbox]').change(function(){
     counter = 0;

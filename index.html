@@ -1,72 +1,77 @@
+
 <!DOCTYPE>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <title>World Visualization</title>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+    <!-- plus a jQuery UI theme, here I use "flick" -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
+    <link rel="stylesheet" href="dist/css/jquery-ui-slider-pips.css">
+    <script src="dist/js/jquery-ui-slider-pips.js"></script>
+
     <link rel="stylesheets" type="text/css" href="dist/css/mapbox.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-    <link rel="stylesheet" type="text/css" href="dist/css/main.css">
+
     <link rel="stylesheet" type="text/css" href="dist/css/mapindex.css">
+    <link rel="stylesheet" type="text/css" href="dist/css/main.css">
 
 
 </head>
 
 <body>
-    <!--<h1>Tempate</h1>
-    <div id="dashboard"></div>-->
-    <div class="wrapper">
 
-        <img src="images/world.svg" alt="Kiwi standing on oval">
+<div class="outer" style="position: relative">
 
-        <div id="map">
-            <div class="slider">
-                <!--<p class="budget">Select The Year?</p>-->
-                <label for="range">
-					<input type="range" name="range" id="range" min="1961" max="2016" step="4" value="175"/>
-				</label>
-                <output for="range" class="output"></output>
-            </div>
+
+    <img class="world" src="images/world.svg" alt="Kiwi standing on oval"  />
+    <div class="slider" style="position: absolute;top :93%; left:35%"></div>
+
+
+    <div class="wrap" style="position: absolute;top : 60%;left :10%;">
+        <div class="block" >
+            <span>Population</span>
+            <input data-index="0" id="cheap" type="checkbox" checked />
+            <label for="cheap"></label>
         </div>
-
-        <div class="wrap">
-            <div class="block">
-                <span>Population</span>
-                <input data-index="0" id="cheap" type="checkbox" checked />
-                <label for="cheap"></label>
-            </div>
-            <div class="block">
-                <span>GDP</span>
-                <input data-index="1" id="fast" type="checkbox" />
-                <label for="fast"></label>
-            </div>
-            <div class="block">
-                <span>quality</span>
-                <input data-index="2" id="quality" type="checkbox" />
-                <label for="quality"></label>
-            </div>
+        <div class="block">
+            <span>GDP</span>
+            <input data-index="1" id="fast" type="checkbox" />
+            <label for="fast"></label>
         </div>
-
-        <input type="checkbox" id="sidebartoggler"></input>
-
-        <div class="page-wrap">
-            <div class="page-content"></div>
-            <label for="sidebartoggler" class="toggle">☰</label>
-            <div class="sidebar">
-                <ul>
-                    <li>Home</li>
-                    <li>Description</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                </ul>
-            </div>
+        <div class="block">
+            <span>quality</span>
+            <input data-index="2" id="quality" type="checkbox" />
+            <label for="quality"></label>
         </div>
     </div>
 
-    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-    <script src="dist/js/jquery.min.js"></script>
-    <script src="dist/js/classybrew.min.js"></script>
-    <script src="dist/js/common.bundle.js"></script>
-    <script src="dist/js/mapslider.js"></script>
+
+    <input type="checkbox" id="sidebartoggler"></input>
+    <div class="page-wrap">
+        <div class="page-content"></div>
+        <label for="sidebartoggler" class="toggle">☰</label>
+        <div class="sidebar">
+            <ul>
+                <li><a href="index.html">Home</a> </li>
+                <li><a href="Description.html">Description</a></li>
+                <li><a href="About.html">About</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+
 </body>
+<script src="dist/js/mapslider.js"></script>
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+<script src="dist/js/classybrew.min.js"></script>
+<script src="dist/js/common.bundle.js"></script>
 
 </html>
