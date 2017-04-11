@@ -74,7 +74,7 @@ $('input[type=checkbox]').change(function(){
         PostData()
     }
     if(clicked == 3 ){
-        obj.filter="Trade";
+        obj.filter="TRA";
         document.getElementById("FSI").checked = false;
         document.getElementById("GDP").checked = false;
         document.getElementById("Inf").checked = false;
@@ -148,5 +148,5 @@ function PostData(){
         success: function( msg ) {
             console.log( msg );
         }
-    })
+    });
 }
