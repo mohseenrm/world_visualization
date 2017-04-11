@@ -7,7 +7,7 @@ $(".slider")
     .slider({
         min: 1960,
         max: 2016,
-        step: 2,
+        step: 1,
         slide: function( event, ui ) {
             $( "#year_selected" ).val( ui.value);
             //$(ui.value).appendTo("#year_selected");
@@ -17,7 +17,7 @@ $(".slider")
 
     .slider("pips", {
         rest: "label",
-        step: 2
+        step: 4
     })
 
     .slider("float");
