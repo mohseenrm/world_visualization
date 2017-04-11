@@ -219,16 +219,22 @@ $('input[type=checkbox]').change(function(){
 // Render color to map from post request
 function Render_Map(data) {
     col = getColumn(obj.filter).concat('_');
-    col= col.concat('color');
+    // col= col.concat('color');
     // console.log(col);
     for(var i = 0; i < data.length; i++) {
+        var country = undefined;
         var val = data[i];
         console.log(val.countrycode);
-        console.log(val[col]);
+        console.log(val.countryname);
         //TODO: Error handling
-        if( document.getElementById( val.countrycode ) === undefined || document.getElementById( val.countrycode ) === null )
+        country = document.getElementById( val.countrycode );
+
+        console.log( 'country' );
+        console.log( country );
+        if( country === undefined || country === null )
             continue;
-        document.getElementById(val.countrycode).setAttribute("fill",val[col]);
+        // country.setAttribute( "fill", val.color );
+        country.style.fill = val.color;
     }
 }
 
