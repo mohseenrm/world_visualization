@@ -218,11 +218,17 @@ $('input[type=checkbox]').change(function(){
 
 // Render color to map from post request
 function Render_Map(data) {
-    col = getColumn(obj.filter)+'_';
+    col = getColumn(obj.filter).concat('_');
+    col= col.concat('color');
+    // console.log(col);
     for(var i = 0; i < data.length; i++) {
         var val = data[i];
-        document.getElementById(val.countrycode).style.color = col+color;
-        console.log(obj.id);
+        console.log(val.countrycode);
+        console.log(val[col]);
+        //TODO: Error handling
+        if( document.getElementById( val.countrycode ) === undefined || document.getElementById( val.countrycode ) === null )
+            continue;
+        document.getElementById(val.countrycode).setAttribute("fill",val[col]);
     }
 }
 
