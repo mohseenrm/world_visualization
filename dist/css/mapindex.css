@@ -392,6 +392,28 @@ label[for="Reserve"]{
        cursor:pointer;
        transition:.3s ease;
    }
+label[for="FDI"]{
+    width:100px;
+    height:50px;
+    box-sizing:border-box;
+    border:3px solid;
+    float:left;
+    border-radius:100px;
+    position:relative;
+    cursor:pointer;
+    transition:.3s ease;
+}
+label[for="Trade"]{
+    width:100px;
+    height:50px;
+    box-sizing:border-box;
+    border:3px solid;
+    float:left;
+    border-radius:100px;
+    position:relative;
+    cursor:pointer;
+    transition:.3s ease;
+}
 input[type=checkbox]:checked + label{
     background:#55e868;
 }
@@ -486,6 +508,34 @@ label[for='Emp']:before{
     border-radius:100px;
 }
 label[for='Reserve']:before{
+    transition:.3s ease;
+    content:'';
+    width:40px;
+    height:40px;
+    position:absolute;
+    background:white;
+    left:2px;
+    top:2px;
+    box-sizing:border-box;
+    border:3px solid;
+    color:black;
+    border-radius:100px;
+}
+label[for='FDI']:before{
+    transition:.3s ease;
+    content:'';
+    width:40px;
+    height:40px;
+    position:absolute;
+    background:white;
+    left:2px;
+    top:2px;
+    box-sizing:border-box;
+    border:3px solid;
+    color:black;
+    border-radius:100px;
+}
+label[for='Trade']:before{
     transition:.3s ease;
     content:'';
     width:40px;
