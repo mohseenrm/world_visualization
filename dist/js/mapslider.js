@@ -25,6 +25,7 @@ $(".slider")
         slide: function( event, ui ) {
             //$( "#year_selected" ).val( ui.value);
             obj.year=ui.value;
+            PostData();
             //alert(obj.year);
 
         }
@@ -44,7 +45,7 @@ $('input[type=checkbox]').change(function(){
          obj.filter="FSI";
          document.getElementById("GDP").checked = false;
          document.getElementById("Inf").checked = false;
-         document.getElementById("Gini").checked = false;
+         document.getElementById("FDI").checked = false;
          document.getElementById("cheap").checked = false;
          document.getElementById("Emp").checked = false;
          document.getElementById("Reserve").checked = false;
@@ -54,63 +55,79 @@ $('input[type=checkbox]').change(function(){
         obj.filter="GDP";
         document.getElementById("FSI").checked = false;
         document.getElementById("Inf").checked = false;
-        document.getElementById("Gini").checked = false;
+        document.getElementById("FDI").checked = false;
         document.getElementById("cheap").checked = false;
         document.getElementById("Emp").checked = false;
         document.getElementById("Reserve").checked = false;
+        document.getElementById("Trade").checked = false;
         PostData()
     }
     if(clicked == 2 ){
         obj.filter="INF";
         document.getElementById("FSI").checked = false;
         document.getElementById("GDP").checked = false;
-        document.getElementById("Gini").checked = false;
+        document.getElementById("FDI").checked = false;
         document.getElementById("cheap").checked = false;
         document.getElementById("Emp").checked = false;
         document.getElementById("Reserve").checked = false;
+        document.getElementById("Trade").checked = false;
         PostData()
     }
     if(clicked == 3 ){
-        obj.filter="GIN";
+        obj.filter="Trade";
         document.getElementById("FSI").checked = false;
         document.getElementById("GDP").checked = false;
         document.getElementById("Inf").checked = false;
         document.getElementById("cheap").checked = false;
         document.getElementById("Emp").checked = false;
         document.getElementById("Reserve").checked = false;
+        document.getElementById("FDI").checked = false;
         PostData()
     }
     if(clicked == 4 ){
         obj.filter="POP";
         document.getElementById("FSI").checked = false;
         document.getElementById("GDP").checked = false;
-        document.getElementById("Gini").checked = false;
+        document.getElementById("FDI").checked = false;
         document.getElementById("Inf").checked = false;
         document.getElementById("Emp").checked = false;
         document.getElementById("Reserve").checked = false;
+        document.getElementById("Trade").checked = false;
         PostData()
     }
     if(clicked == 5 ){
         obj.filter="EMP";
         document.getElementById("FSI").checked = false;
         document.getElementById("GDP").checked = false;
-        document.getElementById("Gini").checked = false;
+        document.getElementById("FDI").checked = false;
         document.getElementById("cheap").checked = false;
         document.getElementById("Inf").checked = false;
         document.getElementById("Reserve").checked = false;
+        document.getElementById("Trade").checked = false;
         PostData()
     }
     if(clicked == 6 ){
         obj.filter="RES";
         document.getElementById("FSI").checked = false;
         document.getElementById("GDP").checked = false;
-        document.getElementById("Gini").checked = false;
+        document.getElementById("FDI").checked = false;
         document.getElementById("cheap").checked = false;
         document.getElementById("Emp").checked = false;
         document.getElementById("Inf").checked = false;
+        document.getElementById("Trade").checked = false;
         PostData()
     }
-
+    if(clicked == 7 ){
+        obj.filter="FDI";
+        document.getElementById("FSI").checked = false;
+        document.getElementById("GDP").checked = false;
+        document.getElementById("Reserve").checked = false;
+        document.getElementById("cheap").checked = false;
+        document.getElementById("Emp").checked = false;
+        document.getElementById("Inf").checked = false;
+        document.getElementById("Trade").checked = false;
+        PostData()
+    }
 });
 
 function PostData(){
@@ -124,7 +141,7 @@ function PostData(){
 
     $.ajax({
         type: 'POST',
-        url: "http://localhost:9001/main",
+        url: "https://localhost:9001/main",
         contentType: 'application/json',
         dataType: 'json',
         data: JSON.stringify(obj)
