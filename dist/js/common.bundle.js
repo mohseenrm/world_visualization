@@ -98,7 +98,7 @@
 	// xhr.overrideMimeType("image/svg+xml");
 	// xhr.send("");
 
-	get('https://rawgit.com/mohseenrm/leet_code/master/world4.svg').then(function (request) {
+	get('https://rawgit.com/mohseenrm/leet_code/master/world.svg').then(function (request) {
 		document.getElementById("svgContainer").appendChild(request.responseXML.documentElement);
 	}, function (error) {
 		console.log("Failed to get resource: " + error);
