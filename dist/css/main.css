@@ -102,9 +102,42 @@ table {
   src: url("fonts/Raleway-Light.eot?#iefix") format("embedded-opentype"), url("fonts/Raleway-Light.woff2") format("woff2"), url("fonts/Raleway-Light.woff") format("woff"), url("fonts/Raleway-Light.ttf") format("truetype"), url("fonts/Raleway-Light.svg#Raleway-Light") format("svg");
   font-weight: 300;
   font-style: normal; }
+@font-face {
+  font-family: 'Bebas Neue Book';
+  src: url("fonts/BebasNeueBook.eot");
+  src: url("fonts/BebasNeueBook.eot?#iefix") format("embedded-opentype"), url("fonts/BebasNeueBook.woff2") format("woff2"), url("fonts/BebasNeueBook.woff") format("woff"), url("fonts/BebasNeueBook.ttf") format("truetype"), url("fonts/BebasNeueBook.svg#BebasNeueBook") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url("fonts/BebasNeueRegular.eot");
+  src: url("fonts/BebasNeueRegular.eot?#iefix") format("embedded-opentype"), url("fonts/BebasNeueRegular.woff2") format("woff2"), url("fonts/BebasNeueRegular.woff") format("woff"), url("fonts/BebasNeueRegular.ttf") format("truetype"), url("fonts/BebasNeueRegular.svg#BebasNeueRegular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Bebas Neue Light';
+  src: url("fonts/BebasNeueLight.eot");
+  src: url("fonts/BebasNeueLight.eot?#iefix") format("embedded-opentype"), url("fonts/BebasNeueLight.woff2") format("woff2"), url("fonts/BebasNeueLight.woff") format("woff"), url("fonts/BebasNeueLight.ttf") format("truetype"), url("fonts/BebasNeueLight.svg#BebasNeueLight") format("svg");
+  font-weight: 300;
+  font-style: normal; }
+@font-face {
+  font-family: 'Bebas Neue Bold';
+  src: url("fonts/BebasNeueBold.eot");
+  src: url("fonts/BebasNeueBold.eot?#iefix") format("embedded-opentype"), url("fonts/BebasNeueBold.woff2") format("woff2"), url("fonts/BebasNeueBold.woff") format("woff"), url("fonts/BebasNeueBold.ttf") format("truetype"), url("fonts/BebasNeueBold.svg#BebasNeueBold") format("svg");
+  font-weight: bold;
+  font-style: normal; }
+@font-face {
+  font-family: 'Bebas Neue Thin';
+  src: url("fonts/BebasNeue-Thin.eot");
+  src: url("fonts/BebasNeue-Thin.eot?#iefix") format("embedded-opentype"), url("fonts/BebasNeue-Thin.woff2") format("woff2"), url("fonts/BebasNeue-Thin.woff") format("woff"), url("fonts/BebasNeue-Thin.ttf") format("truetype"), url("fonts/BebasNeue-Thin.svg#BebasNeue-Thin") format("svg");
+  font-weight: 100;
+  font-style: normal; }
 h1 {
   font-size: 6rem;
   color: #ffff00; }
+
+body {
+  font-family: "Raleway", "Bebas Neue", "Helvetica", sans-serif; }
 
 /*add styles here*/
 body > .wrapper {
@@ -117,6 +150,12 @@ body > .wrapper {
   height: 100%;
   overflow: hidden; }
 
+.title {
+  margin-top: 2.5%;
+  color: #fff;
+  font-size: 4rem;
+  font-family: "Bebas Neue Bold", "Raleway", "Bebas Neue", "Helvetica", sans-serif; }
+
 #svgContainer + .wrapper {
   display: -webkit-box;
   display: -webkit-flex;
@@ -128,8 +167,9 @@ body > .wrapper {
   height: 100%;
   top: 0px;
   left: 0px;
-  justify-content: center;
-  align-items: flex-end; }
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; }
 
 .slider-wrapper {
   display: -webkit-box;

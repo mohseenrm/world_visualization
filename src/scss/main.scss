@@ -3,7 +3,7 @@
 @import 'fonts';
 $color-pallette: #ffd;
 
-$fonts: 'Raleway', sans-serif;
+$fonts: 'Raleway', 'Bebas Neue', 'Helvetica', sans-serif;
 
 
 h1 {
@@ -11,7 +11,9 @@ h1 {
     color: #ffff00;
 }
 
-
+body{
+    font-family: $fonts;
+}
 /*add styles here*/
 
 body > .wrapper {
@@ -21,6 +23,13 @@ body > .wrapper {
     overflow: hidden;
 }
 
+.title{
+    margin-top: 2.5%;
+    color: #fff;
+    font-size: 4rem;
+    font-family: 'Bebas Neue Bold', $fonts;
+}
+
 #svgContainer + .wrapper{
     @include flexbox;
     position: fixed;
@@ -28,8 +37,9 @@ body > .wrapper {
     height: 100%;
     top: 0px;
     left: 0px;
-    justify-content: center;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .slider-wrapper {

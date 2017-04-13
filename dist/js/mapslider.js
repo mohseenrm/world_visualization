@@ -66,7 +66,7 @@ window.onclick = function(event) {
 }
 
 
-
+var $title = $( '.title' );
 
 $(".slider")
 
@@ -77,6 +77,7 @@ $(".slider")
         slide: function( event, ui ) {
             //$( "#year_selected" ).val( ui.value);
             obj.year=ui.value;
+            $title.text( ui.value );
             switch (ui.value){
                 case 2000:
                     var str='<video  loop autoplay><source src="https://img.buzzfeed.com/buzzfeed-static/static/enhanced/web03/2012/6/15/16/anigif_enhanced-buzz-5196-1339793944-0.gif?output-format=mp4" type="video/mp4"/></video>';

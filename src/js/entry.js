@@ -36,10 +36,12 @@
 
 	let $toggle = $( 'label.toggle' ),
 		$svg = $( '#svgContainer' ),
-		$slider = $( '.slider-box' );
+		$slider = $( '.slider-box' ),
+		$title = $( '.title' );
 	$toggle.on( 'click', ( e ) => {
 		// e.preventDefault();
 		$svg.toggleClass( 'active' );
 		$slider.toggleClass( 'active' );
+		$title.toggleClass( 'active' );
 	} );
 })();
