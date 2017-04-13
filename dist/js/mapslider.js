@@ -7,6 +7,8 @@ var obj = new Object();
 obj.year = 1970;
 obj.filter="FSI";
 
+var c_id,c_val;
+
 var year_data = new Object();
 year_data ={
     "2008":"In September, Wall Street experiences what many experts label as the biggest economic disaster since the Great Depression. It\'s fueled by an ongoing, multi-billion-dollar mortgage crisis. Lehman Brothers collapses. AIG, American International Group, the country\'s largest insurance company, files for bankruptcy despite a $85 billion bailout. Washington Mutual is sold to JP Morgan Chase. In October, President Bush signs a $700 billion rescue plan for the banks.<\/p><p> In December, Bush signs a $17.4 billion rescue package for ailing auto makers General Motors and Chrysler. The Big Three CEOs blame their problems on the growing global economic crisis, but critics charge they were too slow to produce fuel-efficient cars.<\/p>",
@@ -76,10 +78,17 @@ $(".slider")
             //$( "#year_selected" ).val( ui.value);
             obj.year=ui.value;
             switch (ui.value){
-                case 2008:
-                    document.getElementById("year_info").innerHTML=year_data["2008"];
+                case 2000:
+                    var str='<video  loop autoplay><source src="https://img.buzzfeed.com/buzzfeed-static/static/enhanced/web03/2012/6/15/16/anigif_enhanced-buzz-5196-1339793944-0.gif?output-format=mp4" type="video/mp4"/></video>';
+                    document.getElementById("year_info").innerHTML=str;
                     modal.style.display="block";
                     break;
+                case 2008:
+                    var str='<video width="100%" loop autoplay><source src="images/event2008.mp4" type="video/mp4"/></video>';
+                    document.getElementById("year_info").innerHTML=str;
+                    modal.style.display="block";
+                    break;
+                    //https://img.buzzfeed.com/buzzfeed-static/static/enhanced/web05/2012/6/15/17/anigif_enhanced-buzz-23421-1339794637-3.gif?output-format=mp4
                 case 1970:
                     document.getElementById("year_info").innerHTML=year_data["1970"];
                     modal.style.display="block";
@@ -88,8 +97,14 @@ $(".slider")
                     document.getElementById("year_info").innerHTML=year_data["1973"];
                     modal.style.display="block";
                     break;
-                case 1987:
-                    document.getElementById("year_info").innerHTML=year_data["1987"];
+                case 1989:
+                    var str='<video  loop autoplay><source src="https://img.buzzfeed.com/buzzfeed-static/static/enhanced/web03/2012/6/15/17/anigif_enhanced-buzz-5301-1339794593-7.gif?output-format=mp4" type="video/mp4"/></video>';
+                    document.getElementById("year_info").innerHTML=str;
+                    modal.style.display="block";
+                    break;
+                case 1990:
+                    var str='<video  loop autoplay><source src="https://img.buzzfeed.com/buzzfeed-static/static/enhanced/web05/2012/6/15/17/anigif_enhanced-buzz-23421-1339794637-3.gif?output-format=mp4" type="video/mp4"/></video>';
+                    document.getElementById("year_info").innerHTML=str;
                     modal.style.display="block";
                     break;
                 case 1991:
@@ -115,6 +130,10 @@ $(".slider")
     })
 
     .slider("float");
+
+
+
+
 
 
 
@@ -219,24 +238,42 @@ $('input[type=checkbox]').change(function(){
 // Render color to map from post request
 function Render_Map(data) {
     col = getColumn(obj.filter).concat('_');
-    // col= col.concat('color');
-    // console.log(col);
+
+    console.log(data);
     for(var i = 0; i < data.length; i++) {
         var country = undefined;
         var val = data[i];
         console.log(val.countrycode);
         console.log(val.countryname);
-        //TODO: Error handling
-        country = document.getElementById( val.countrycode );
 
-        console.log( 'country' );
-        console.log( country );
+        //TODO: Error handling
+        country = document.getElementById(val.countrycode);
+        c_id=Object.keys(val)[1];
+        c_val=Object.values(val)[1];
+        console.log("key 1 is: "+Object.keys(val)[1]);
+        console.log("value  is: "+Object.values(val)[1]);
+        document.getElementsByTagName("path")[i].setAttribute("class","tooltip");
+
         if( country === undefined || country === null )
             continue;
-        // country.setAttribute( "fill", val.color );
+
         country.style.fill = val.color;
     }
+    document.getElementById('NA').style.fill=val.color;
+    document.getElementById('CI').style.fill=val.color;
+
 }
+
+
+
+$( "#svgContainer" ).click(function( event ) {
+    var ip=document.getElementsByTagName(event.target.nodeName);
+    console.log(event.target.id);
+
+
+});
+
+
 
 
 
