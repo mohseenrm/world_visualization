@@ -91,5 +91,11 @@ h1 {
 .world{
     max-width: 99%;
     max-height: 99%;
+}
 
+.wrap{
+    @include flexbox;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
 }
