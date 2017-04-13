@@ -4,7 +4,7 @@
 $color-pallette: #ffd;
 
 $fonts: 'Raleway', 'Bebas Neue', 'Helvetica', sans-serif;
-
+$silver-grey: #404040;
 
 h1 {
     font-size: 6rem;
@@ -52,7 +52,7 @@ body > .wrapper {
     border-top-right-radius: 100%;
     // border-bottom-left-radius: 25%;
     // border-bottom-right-radius: 25%;
-    border: 2px solid #FF652D;
+    border: 2px solid $silver-grey;
     border-bottom: 0px;
     background: #FCF7F8;
     width: 60%;
@@ -123,7 +123,7 @@ h1 {
     position: relative;
     background: center;
     // background-color: #9FE472;
-    background-color: #FF652D;
+    background-color: $silver-grey;
 }
 #year_selected {
     position:relative;

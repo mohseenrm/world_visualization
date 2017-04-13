@@ -182,7 +182,7 @@ body > .wrapper {
 .slider-box {
   border-top-left-radius: 100%;
   border-top-right-radius: 100%;
-  border: 2px solid #FF652D;
+  border: 2px solid #404040;
   border-bottom: 0px;
   background: #FCF7F8;
   width: 60%;
@@ -243,7 +243,7 @@ h1 {
   width: 85%;
   position: relative;
   background: center;
-  background-color: #FF652D; }
+  background-color: #404040; }
 
 #year_selected {
   position: relative;
