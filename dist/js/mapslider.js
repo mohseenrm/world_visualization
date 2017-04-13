@@ -7,7 +7,14 @@ var obj = new Object();
 obj.year = 1970;
 obj.filter = "FSI";
 
+var obj1 = new Object();
+obj1.year = 1970;
+obj1.filter = "FSI"
+obj1.id = "US";
+
 var c_id, c_val;
+var country_id;
+var countries = [];
 
 var year_data = new Object();
 year_data = {
@@ -93,35 +100,35 @@ $(".slider")
                 case 2000:
                     var str = '<video  loop autoplay><source src="https://img.buzzfeed.com/buzzfeed-static/static/enhanced/web03/2012/6/15/16/anigif_enhanced-buzz-5196-1339793944-0.gif?output-format=mp4" type="video/mp4"/></video>';
                     document.getElementById("year_info").innerHTML = str;
-                    modal.style.display = "block";
+                    year_modal.style.display = "block";
                     break;
                 case 2008:
                     var str = '<video width="100%" loop autoplay><source src="images/event2008.mp4" type="video/mp4"/></video>';
                     document.getElementById("year_info").innerHTML = str;
-                    modal.style.display = "block";
+                    year_modal.style.display = "block";
                     break;
                     //https://img.buzzfeed.com/buzzfeed-static/static/enhanced/web05/2012/6/15/17/anigif_enhanced-buzz-23421-1339794637-3.gif?output-format=mp4
                 case 1970:
                     document.getElementById("year_info").innerHTML = year_data["1970"];
-                    modal.style.display = "block";
+                    year_modal.style.display = "block";
                     break;
                 case 1973:
                     document.getElementById("year_info").innerHTML = year_data["1973"];
-                    modal.style.display = "block";
+                    year_modal.style.display = "block";
                     break;
                 case 1989:
                     var str = '<video  loop autoplay><source src="https://img.buzzfeed.com/buzzfeed-static/static/enhanced/web03/2012/6/15/17/anigif_enhanced-buzz-5301-1339794593-7.gif?output-format=mp4" type="video/mp4"/></video>';
                     document.getElementById("year_info").innerHTML = str;
-                    modal.style.display = "block";
+                    year_modal.style.display = "block";
                     break;
                 case 1990:
                     var str = '<video  loop autoplay><source src="https://img.buzzfeed.com/buzzfeed-static/static/enhanced/web05/2012/6/15/17/anigif_enhanced-buzz-23421-1339794637-3.gif?output-format=mp4" type="video/mp4"/></video>';
                     document.getElementById("year_info").innerHTML = str;
-                    modal.style.display = "block";
+                    year_modal.style.display = "block";
                     break;
                 case 1991:
                     document.getElementById("year_info").innerHTML = year_data["1991"];
-                    modal.style.display = "block";
+                    year_modal.style.display = "block";
                     break;
 
             }
@@ -258,33 +265,77 @@ function Render_Map(data) {
         console.log(val.countrycode);
         console.log(val.countryname);
 
+
         //TODO: Error handling
         country = document.getElementById(val.countrycode);
+
         c_id = Object.keys(val)[1];
         c_val = Object.values(val)[1];
+        countries.push({
+            id: val.countrycode,
+        });
+        countries[i][c_id] = c_val;
+
         console.log("key 1 is: " + Object.keys(val)[1]);
         console.log("value  is: " + Object.values(val)[1]);
-        document.getElementsByTagName("path")[i].setAttribute("class", "tooltip");
+        //document.getElementsByTagName("path")[i].setAttribute("class","tooltip");
 
         if (country === undefined || country === null)
             continue;
-
         country.style.fill = val.color;
+
     }
     document.getElementById('NA').style.fill = val.color;
     document.getElementById('CI').style.fill = val.color;
+    //console.log("countries: "+ JSON.stringify(countries));
 
 }
 
-
+//for on click on countries
 
 $("#svgContainer").click(function (event) {
     var ip = document.getElementsByTagName(event.target.nodeName);
-    console.log(event.target.id);
+    //console.log("countries: "+ JSON.stringify(countries));
+    console.log("ip:" + event.target.nodeName);
+    obj1.id = event.target.id;
 
+    for (var i = 0; i < countries.length; i++) {
+        document.getElementById(event.target.id).setAttribute("class", "tooltip");
+        document.getElementById(event.target.id).setAttribute("title", "id is" + countries[i].id);
+
+        //console.log("countries: "+ JSON.stringify(countries[i].id));
+        if (countries[i].id === event.target.id) {
+            console.log(countries[i].id);
+            console.log(Object.keys(countries[i])[1] + ": " + Object.values(countries[i])[1]);
+            /*document.getElementById("year_info").innerHTML=Object.keys(countries[i])[1]+": "+Object.values(countries[i])[1];
+            modal.style.display="block";*/
+
+            country_modal.style.display = "block";
+
+            break;
+        }
+
+
+    }
+    console.log("clicked:" + event.target.id);
+    //console.log(c_id);
+    //console.log(c_val);
 
 });
 
+function PostYear() {
+    $.ajax({
+        type: 'POST',
+        url: "http://localhost:9001/year",
+        contentType: 'application/json',
+        dataType: 'json',
+        data: JSON.stringify(obj1),
+        success: function (msg) {
+            console.log(msg);
+            //Render_Map(msg.data);
+        }
+    });
+}
 function PostData() {
     // $.post("https://localhost:9001/main",JSON.stringify(obj),"","json");
 

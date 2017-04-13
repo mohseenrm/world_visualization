@@ -169,7 +169,8 @@ body > .wrapper {
   left: 0px;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center; }
+  align-items: center;
+  pointer-events: none; }
 
 .slider-wrapper {
   display: -webkit-box;
@@ -195,7 +196,8 @@ body > .wrapper {
   justify-content: center;
   padding-top: 3.5%;
   padding-bottom: 2%;
-  opacity: 0.3; }
+  opacity: 0.3;
+  pointer-events: auto; }
   .slider-box:hover {
     opacity: 0.9; }
 
