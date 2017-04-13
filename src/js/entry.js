@@ -34,4 +34,12 @@
 		console.log(`Failed to get resource: ${error}`);
 	} );
 
+	let $toggle = $( 'label.toggle' ),
+		$svg = $( '#svgContainer' ),
+		$slider = $( '.slider-box' );
+	$toggle.on( 'click', ( e ) => {
+		// e.preventDefault();
+		$svg.toggleClass( 'active' );
+		$slider.toggleClass( 'active' );
+	} );
 })();

@@ -38,17 +38,18 @@ body > .wrapper {
 }
 
 .slider-box{
-    // border-top-left-radius: 25%;
-    // border-top-right-radius: 25%;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
     // border-bottom-left-radius: 25%;
     // border-bottom-right-radius: 25%;
-    border: 2px solid #73AD21;
-    background: #fff;
+    border: 2px solid #FF652D;
+    border-bottom: 0px;
+    background: #FCF7F8;
     width: 60%;
     height: auto;
     @include flexbox;
     justify-content: center;
-    padding-top: 2%;
+    padding-top: 3.5%;
     padding-bottom: 2%;
     opacity: 0.3;
     &:hover{
@@ -111,7 +112,8 @@ h1 {
     width:85%;
     position: relative;
     background: center;
-    background-color: #9FE472;
+    // background-color: #9FE472;
+    background-color: #FF652D;
 }
 #year_selected {
     position:relative;
@@ -139,4 +141,12 @@ h1 {
 }
 
 .filter-label{   
+}
+
+.active{
+    -webkit-filter: blur(8px);
+    -moz-filter: blur(8px);
+    -o-filter: blur(8px);
+    -ms-filter: blur(8px);
+    filter: blur(8px);
 }

@@ -103,6 +103,15 @@
 	}, function (error) {
 		console.log("Failed to get resource: " + error);
 	});
+
+	var $toggle = $('label.toggle'),
+	    $svg = $('#svgContainer'),
+	    $slider = $('.slider-box');
+	$toggle.on('click', function (e) {
+		// e.preventDefault();
+		$svg.toggleClass('active');
+		$slider.toggleClass('active');
+	});
 })();
 
 /***/ })
