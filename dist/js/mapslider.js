@@ -273,11 +273,6 @@ $( "#svgContainer" ).click(function( event ) {
 
 });
 
-
-
-
-
-
 function PostData(){
    // $.post("https://localhost:9001/main",JSON.stringify(obj),"","json");
 
@@ -299,6 +294,3 @@ function PostData(){
         }
     });
 }
-
-
-

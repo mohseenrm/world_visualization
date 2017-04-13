@@ -290,6 +290,14 @@ input[type="checkbox"] {
     align-items: center;
     /*width: 200px;*/
     /*margin: 0 0 25px;*/
+    margin: 5%;
+}
+
+.block > span {
+    font-family: 'Raleway-Light', sans-serif;
+    font-size: 1rem;
+    color: #fff;
+    margin: 2.8%;
 }
 
 /*span {
@@ -658,6 +666,7 @@ label[for='Trade']:before {
 }
 
 .modal-body {
+    font-family: 'Raleway';
     padding: 2px 16px;
 }
 
