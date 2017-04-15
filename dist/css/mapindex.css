@@ -658,8 +658,6 @@ label[for='Trade']:before {
     display: flex;
     background-color: #FF652D;
     color: white;
-    /*padding-top: 2%;
-    padding-bottom: 2%;*/
     padding: 2%;
     justify-content: space-between;
 }
