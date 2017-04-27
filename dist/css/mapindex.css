@@ -690,3 +690,8 @@ label[for='Trade']:before {
     background-color: #FF652D;
     color: white;
 }
+
+#chartContainer{
+    background-color:#24303A;
+
+}
