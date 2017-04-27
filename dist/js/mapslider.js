@@ -16,6 +16,16 @@ var c_id, c_val;
 var country_id;
 var countries = [];
 
+
+var graph2= {
+
+countrycode: 'US',
+
+year: 2000,
+filter: 'POP'
+
+}
+
 var year_data = new Object();
 year_data = {
     "2008": "In September, Wall Street experiences what many experts label as the biggest economic disaster since the Great Depression. It\'s fueled by an ongoing, multi-billion-dollar mortgage crisis. Lehman Brothers collapses. AIG, American International Group, the country\'s largest insurance company, files for bankruptcy despite a $85 billion bailout. Washington Mutual is sold to JP Morgan Chase. In October, President Bush signs a $700 billion rescue plan for the banks.<\/p><p> In December, Bush signs a $17.4 billion rescue package for ailing auto makers General Motors and Chrysler. The Big Three CEOs blame their problems on the growing global economic crisis, but critics charge they were too slow to produce fuel-efficient cars.<\/p>",
@@ -305,6 +315,10 @@ $("#svgContainer").click(function (event) {
 
         //console.log("countries: "+ JSON.stringify(countries[i].id));
         if (countries[i].id === event.target.id) {
+            obj1.countrycode=countries[i].id
+            obj1.year=obj.year
+            obj1.filter=obj.filter
+            PostYear()
             console.log(countries[i].id);
             console.log(Object.keys(countries[i])[1] + ": " + Object.values(countries[i])[1]);
             /*document.getElementById("year_info").innerHTML=Object.keys(countries[i])[1]+": "+Object.values(countries[i])[1];
@@ -326,7 +340,7 @@ $("#svgContainer").click(function (event) {
 function PostYear() {
     $.ajax({
         type: 'POST',
-        url: "http://localhost:9001/year",
+        url: "http://localhost:9001/graph",
         contentType: 'application/json',
         dataType: 'json',
         data: JSON.stringify(obj1),
