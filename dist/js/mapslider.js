@@ -9,7 +9,7 @@ obj.filter = "FSI";
 var obj1 = new Object();
 obj1.year = 1970;
 obj1.filter = "FSI"
-obj1.id = "US";
+obj1.countrycode = "US";
 
 var c_id,
     c_val;
@@ -21,6 +21,34 @@ var graph2 = {
     year: 2000,
     filter: 'POP'
 }
+
+var country_list={"GE":"Georgia","KN":"St. Kitts and Nevis","PT":"Portugal","MT":"Malta","CZ":"Czech Republic","GQ":"Equatorial Guinea",
+                  "FI":"Finland","GD":"Grenada","RS":"Serbia","BE":"Belgium","GR":"Greece","DE":"Germany","AT":"Austria","PL":"Poland",
+                  "HU":"Hungary","BB":"Barbados","GB":"United Kingdom","SK":"Slovak Republic","LU":"Luxembourg","IS":"Iceland","UY":"Uruguay",
+                  "IT":"Italy","HR":"Croatia","RU":"Russian Federation","AW":"Aruba","MC":"Monaco","SI":"Slovenia","BG":"Bulgaria","LV":"Latvia",
+                  "CH":"Switzerland","UA":"Ukraine","NO":"Norway","DK":"Denmark","FR":"France","IE":"Ireland","TT":"Trinidad and Tobago",
+                  "ME":"Montenegro","SE":"Sweden","LT":"Lithuania","VC":"St. Vincent and the Grenadines","TC":"Turks and Caicos Islands",
+                  "EE":"Estonia","ES":"Spain","JP":"Japan","GY":"Guyana","TV":"Tuvalu","BA":"Bosnia and Herzegovina","US":"United States",
+                  "S3":"Caribbean small states","SR":"Suriname","RO":"Romania","DM":"Dominica","CY":"Cyprus","NL":"Netherlands","PR":"Puerto Rico",
+                  "JM":"Jamaica","GN":"Guinea","MK":"Macedonia, FYR","NZ":"New Zealand","LC":"St. Lucia","MD":"Moldova","CA":"Canada","ML":"Mali",
+                  "AR":"Argentina","SG":"Singapore","KZ":"Kazakhstan","AG":"Antigua and Barbuda","SL":"Sierra Leone","MU":"Mauritius",
+                  "KH":"Cambodia","BF":"Burkina Faso","SO":"Somalia","CU":"Cuba","TO":"Tonga","YE":"Yemen, Rep.","GW":"Guinea-Bissau",
+                  "BM":"Bermuda","HT":"Haiti","BI":"Burundi","TN":"Tunisia","CL":"Chile","AU":"Australia","AO":"Angola","CV":"Cabo Verde",
+                  "NP":"Nepal","CF":"Central African Republic","LS":"Lesotho","GA":"Gabon","LB":"Lebanon","BO":"Bolivia","1W":"World","TD":"Chad",
+                  "FJ":"Fiji","LK":"Sri Lanka","BJ":"Benin","KM":"Comoros","ZA":"South Africa","KR":"Korea, Rep.","AZ":"Azerbaijan","IN":"India",
+                  "MA":"Morocco","TL":"Timor-Leste","MZ":"Mozambique","KG":"Kyrgyz Republic","EG":"Egypt, Arab Rep.","VN":"Vietnam","NG":"Nigeria",
+                  "SS":"South Sudan","SC":"Seychelles","TR":"Turkey","GH":"Ghana","LI":"Liechtenstein","BZ":"Belize","HK":"Hong Kong SAR, China",
+                  "MM":"Myanmar","AF":"Afghanistan","MY":"Malaysia","AM":"Armenia","PY":"Paraguay","BR":"Brazil","BD":"Bangladesh","CM":"Cameroon",
+                  "AL":"Albania","LA":"Lao PDR","LR":"Liberia","GM":"Gambia, The","CO":"Colombia","MW":"Malawi","ER":"Eritrea",
+                  "PG":"Papua New Guinea","SV":"El Salvador","IR":"Iran, Islamic Rep.","ID":"Indonesia","HN":"Honduras","PK":"Pakistan",
+                  "MG":"Madagascar","ET":"Ethiopia","PE":"Peru","MV":"Maldives","NE":"Niger","SZ":"Swaziland","CN":"China","CR":"Costa Rica",
+                  "GT":"Guatemala","CD":"Congo, Dem. Rep.","DZ":"Algeria","PA":"Panama","DO":"Dominican Republic","TM":"Turkmenistan",
+                  "PH":"Philippines","EC":"Ecuador","MN":"Mongolia","VU":"Vanuatu","TH":"Thailand","MR":"Mauritania","CG":"Congo, Rep.",
+                  "SN":"Senegal","UG":"Uganda","NI":"Nicaragua","BS":"Bahamas, The","RW":"Rwanda","VE":"Venezuela, RB","TZ":"Tanzania",
+                  "TJ":"Tajikistan","MX":"Mexico","UZ":"Uzbekistan","BW":"Botswana","SD":"Sudan","BT":"Bhutan","OM":"Oman","GL":"Greenland",
+                  "IL":"Israel","ZW":"Zimbabwe","PF":"French Polynesia","ZM":"Zambia","SY":"Syrian Arab Republic","SB":"Solomon Islands",
+                  "IQ":"Iraq","KE":"Kenya","TG":"Togo","SA":"Saudi Arabia","LY":"Libya","BN":"Brunei Darussalam","JO":"Jordan","AD":"Andorra",
+                  "DJ":"Djibouti","VI":"Virgin Islands (U.S.)","NC":"New Caledonia","KW":"Kuwait","QA":"Qatar","AE":"United Arab Emirates"};
 
 var year_data = new Object();
 year_data = {
@@ -92,7 +120,7 @@ const getColumn = (field) => {
 // Get the modal
 var year_modal = document.getElementById('year_modal');
 var country_modal = document.getElementById('country_modal');
-
+var modal_country_name=document.getElementById('modal_country_name')
 // events for the 2 modals Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 var country_close = document.getElementById("country_close");
@@ -424,8 +452,8 @@ function Render_Map(data) {
         countries.push({id: val.countrycode});
         countries[i][c_id] = c_val;
 
-        console.log("key 1 is: " + Object.keys(val)[1]);
-        console.log("value  is: " + Object.values(val)[1]);
+        //console.log("key 1 is: " + Object.keys(val)[1]);
+        //console.log("value  is: " + Object.values(val)[1]);
         //document.getElementsByTagName("path")[i].setAttribute("class","tooltip");
 
         if (country === undefined || country === null) 
@@ -433,6 +461,7 @@ function Render_Map(data) {
         country.style.fill = val.color;
 
     }
+    //console.log("list is"+JSON.stringify(country_list))
     document
         .getElementById('NA')
         .style
@@ -451,8 +480,6 @@ $("#svgContainer")
     .click(function (event) {
         var ip = document.getElementsByTagName(event.target.nodeName);
         //console.log("countries: "+ JSON.stringify(countries));
-        console.log("ip:" + event.target.nodeName);
-        obj1.id = event.target.id;
 
         for (var i = 0; i < countries.length; i++) {
             document
@@ -464,14 +491,17 @@ $("#svgContainer")
 
             //console.log("countries: "+ JSON.stringify(countries[i].id));
             if (countries[i].id === event.target.id) {
-                obj1.countrycode = countries[i].id
+                obj1.countrycode = event.target.id
+
+
                 obj1.year = obj.year
                 obj1.filter = obj.filter
-                // PostYear()
-                console.log(countries[i].id);
-                console.log(Object.keys(countries[i])[1] + ": " + Object.values(countries[i])[1]);
+                PostYear()
+
+                modal_country_name.innerHTML=country_list[event.target.id]
                 /*document.getElementById("year_info").innerHTML=Object.keys(countries[i])[1]+": "+Object.values(countries[i])[1];
             modal.style.display="block";*/
+                setTimeout( 2000 );
 
                 country_modal.style.display = "block";
 
@@ -486,15 +516,18 @@ $("#svgContainer")
 
 function PostYear() {
     console.log( 'post year called' );
+    //console.log(obj1.year)
+    //console.log(obj1.countrycode)
+    //filt = obj1.filter.toLowerCase()
     $.ajax({
         type: 'POST',
         url: "http://localhost:9001/graph",
         contentType: 'application/json',
         dataType: 'json',
-        data: JSON.stringify( graph2 ),
+        data: JSON.stringify( obj1 ),
         success: function ( msg ) {
             console.log( msg );
-            //Render_Map(msg.data);
+            Change_Array(msg.data);
         }
     });
 }
@@ -516,4 +549,4 @@ function PostData() {
     });
 }
 
-setTimeout( PostYear, 2000 );
+
