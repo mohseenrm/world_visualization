@@ -1,18 +1,26 @@
-# world_visualization
+World Visualization Client
+-----------------------------
+# Install dependencies
+Browsers Supported Chrome (v40+), Firefox (v41+)
 
-## Build Instructions
+| Requirements        | Version           | Link  |
+| ------------- |:-------------:| :-----:|
+| Node     | v6.7.0 | [download](https://nodejs.org/en/) |
+| npm     | v4.0.5      |   [download](https://nodejs.org/en/) |
+| Chrome | v40+      |    [download](https://www.google.com/chrome/browser/desktop/) |
 
-1. Setup Environment
-```
-npm install
-```
-
-2. Build with webpack
+# Build
+MacOS or Linux based OS
 ```
 npm run build:webpack
 ```
-
-3. Build with Gulp
+Windows
 ```
-npm run build
-``` 
+npm run build:webpack:windows
+```
+
+# Run
+Note: Please run the server first then launch the client
+```
+Open Index.html in supported browser
+```
