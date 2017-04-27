@@ -12,6 +12,7 @@ Browsers Supported Chrome (v40+), Firefox (v41+)
 # Build
 MacOS or Linux based OS
 ```
+npm install
 npm run build:webpack
 ```
 Windows
