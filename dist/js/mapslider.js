@@ -437,12 +437,12 @@ $('input[type=checkbox]').change(function () {
 function Render_Map(data) {
     col = getColumn(obj.filter).concat('_');
 
-    console.log(data);
+    //console.log(data);
     for (var i = 0; i < data.length; i++) {
         var country = undefined;
         var val = data[i];
-        console.log(val.countrycode);
-        console.log(val.countryname);
+        //console.log(val.countrycode);
+        //console.log(val.countryname);
 
         //TODO: Error handling
         country = document.getElementById(val.countrycode);
@@ -526,8 +526,22 @@ function PostYear() {
         dataType: 'json',
         data: JSON.stringify( obj1 ),
         success: function ( msg ) {
-            console.log( msg );
-            Change_Array(msg.data);
+            //console.log( msg );
+            //Change_Array(msg.data);
+            var val = msg.data[0];
+            destval = [];
+            destyear = [];
+            filt = Object.keys(val)[0];
+            //console.log(msg.data)
+            for (i = 0; i < msg.data.length; i++) {
+                //console.log(data[i][filt])
+                destval[i] = msg.data[i][filt]
+                destyear[i]=msg.data[i]['year']
+                console.log(destval[i],destyear[i],filt.toUpperCase())
+            }
+
+            init(destval,destyear,filt.toUpperCase())
+
         }
     });
 }
@@ -543,10 +557,58 @@ function PostData() {
         dataType: 'json',
         data: JSON.stringify( obj ),
         success: function ( msg ) {
-            console.log( msg );
+            //console.log( msg );
             Render_Map( msg.data );
         }
     });
 }
 
+function init(destval,destyear,filter){
+    console.log(filter)
 
+    console.log('init')
+
+    var chart = new CanvasJS.Chart("chartContainer",
+        {
+            theme: "theme2",
+            backgroundColor:'#24303A',
+            title:{
+                text: filter
+            },
+            animationEnabled: true,
+            axisX: {
+                valueFormatString: "MMM",
+                interval:1,
+                intervalType: "year"
+
+            },
+            axisY:{
+                includeZero: false
+
+            },
+            data: [
+                {
+                    type: "line",
+                    //lineThickness: 3,
+                    dataPoints: [
+                        { x: destyear[0] , y: destval[0] },
+                        { x: destyear[1] , y: destval[1] },
+                        { x: destyear[3] , y: destval[3] },
+                        { x: destyear[4] , y: destval[4] },
+                        { x: destyear[5] , y: destval[5] },
+                        { x: destyear[6] , y: destval[6] },
+                        { x: destyear[7] , y: destval[7] },
+                        { x: destyear[8] , y: destval[8] },
+                        { x: destyear[9] , y: destval[9] },
+                        { x: destyear[10] , y: destval[10] },
+
+                    ]
+                }
+
+
+            ]
+        });
+
+    chart.render();
+
+}
