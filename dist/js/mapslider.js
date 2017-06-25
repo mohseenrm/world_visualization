@@ -521,7 +521,7 @@ function PostYear() {
     //filt = obj1.filter.toLowerCase()
     $.ajax({
         type: 'POST',
-        url: "http://localhost:9001/graph",
+        url: "https://world-fsi.herokuapp.com/graph",
         contentType: 'application/json',
         dataType: 'json',
         data: JSON.stringify( obj1 ),
@@ -552,7 +552,7 @@ function PostData() {
 
     $.ajax({
         type: 'POST',
-        url: "http://localhost:9001/main",
+        url: "https://world-fsi.herokuapp.com/main",
         contentType: 'application/json',
         dataType: 'json',
         data: JSON.stringify( obj ),
