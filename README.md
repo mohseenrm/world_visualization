@@ -10,18 +10,24 @@ Browsers Supported Chrome (v40+), Firefox (v41+)
 | npm     | v4.0.5      |   [download](https://nodejs.org/en/) |
 | Chrome | v40+      |    [download](https://www.google.com/chrome/browser/desktop/) |
 
-# Build
+# Build (Dev)
 MacOS or Linux based OS
 ```
 npm install
 npm run build:webpack
 ```
-Windows
+# Build (Production)
+```
+npm install
+npm run build:webpack:production
+```
+
+# Windows (Dev)
 ```
 npm run build:webpack:windows
 ```
 
-# Run
+# Run (Dev)
 Note: Please run the server first then launch the client
 ```
 Open Index.html in supported browser
